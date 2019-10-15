@@ -56,6 +56,7 @@ public class Employee {
     }
 
     public Employee() {
+        System.out.println("Employee无参构造器调用了");
     }
 
     public Employee(Integer id, String name, Integer age, double salary) {
@@ -63,6 +64,15 @@ public class Employee {
         this.name = name;
         this.age = age;
         this.salary = salary;
+    }
+
+    public Employee(Integer id) {
+        this.id = id;
+    }
+
+    public Employee(Integer id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     @Override

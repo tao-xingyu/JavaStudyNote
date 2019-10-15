@@ -1,6 +1,4 @@
 package code.c.methodreferences;
-
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.junit.jupiter.api.Test;
 
 import java.io.PrintStream;
