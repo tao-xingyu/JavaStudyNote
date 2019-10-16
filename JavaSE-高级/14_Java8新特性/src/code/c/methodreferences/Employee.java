@@ -1,5 +1,7 @@
 package code.c.methodreferences;
 
+import java.util.Objects;
+
 /**
  * 员工实体类
  * @author Jerry
@@ -83,5 +85,30 @@ public class Employee {
                 ", age=" + age +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o){ return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
+
+        Employee employee = (Employee) o;
+
+        if (Double.compare(employee.salary, salary) != 0) {return false;}
+        if (!Objects.equals(id, employee.id)) {return false;}
+        if (!Objects.equals(name, employee.name)) {return false;}
+        return Objects.equals(age, employee.age);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (age != null ? age.hashCode() : 0);
+        temp = Double.doubleToLongBits(salary);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 }
